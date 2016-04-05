@@ -12,7 +12,6 @@ var config = {
   encodingAESKey: '3GyljhUVInXIcHR0KmIXX30sazb3SrgBNnBQ4RSLM5W'
 };
 
-// app.use(express.query());
 app.use(express.static(__dirname + '/public'));
 app.use('/wechat', wechat(config, function (req, res, next) {
   // 微信输入信息都在req.weixin上
@@ -24,7 +23,7 @@ app.use('/wechat', wechat(config, function (req, res, next) {
             title: '新建狼人杀房间',
             description: '请在打开页面输入人数',
             picurl: 'http://weixin-werewolf.herokuapp.com/images/create_room.jpg',
-            url: 'http://weixin-werewolf.herokuapp.com/werewolf/viewRolesets.html'
+            url: 'http://weixin-werewolf.herokuapp.com/werewolf/index.html'
       }    
       ]);
     }    
