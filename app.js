@@ -16,37 +16,17 @@ app.use(express.query());
 app.use('/', wechat(config, function (req, res, next) {
   // 微信输入信息都在req.weixin上
   var message = req.weixin;
-  if (message.MsgType === 'device_text') {
-    // 回复高富帅(图文回复)
-    res.reply([
-      {
-        title: '你来我家接我吧',
-        description: '这是女神与高富帅之间的对话',
-        picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-        url: 'http://nodeapi.cloudfoundry.com/'
-      }
-    ]);
-  } else if (message.MsgType === 'device_event') {
-    // 回复一段音乐
-    res.reply({
-      type: "music",
-      content: {
-        title: "来段音乐吧",
-        description: "一无所有",
-        musicUrl: "http://mp3.com/xx.mp3",
-        hqMusicUrl: "http://mp3.com/xx.mp3",
-        thumbMediaId: "thisThumbMediaId"
-      }
-    });
-  } else {
-    res.reply([
-      {
-        title: 'freedom',
-        description: '这是女神与高富帅之间的对话',
-        picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-        url: 'http://nodeapi.cloudfoundry.com/'
-      }
-    ]);
+  if (message.MsgType === 'text') {
+    if(message.Content === 'create') {
+      res.reply([
+      {    
+            title: '新建狼人杀房间',
+            description: '请在打开页面输入人数',
+            picurl: 'http://weixin-werewolf.herokuapp.com/images/create_room.jpg',
+            url: 'http://weixin-werewolf.herokuapp.com'
+      }    
+      ]);
+    }    
   }
 }));
 
