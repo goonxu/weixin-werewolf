@@ -4,7 +4,6 @@ var wechat = require('./lib/wechat');
 var log = require('debug')('weixin-werewolf');
 
 // 启动服务
-express.static(__dirname + '/public')
 var app = express();
 
 var config = {
@@ -14,6 +13,7 @@ var config = {
 };
 
 app.use(express.query());
+app.use(express.static(__dirname + '/public'));
 app.use('/wechat', wechat(config, function (req, res, next) {
   // 微信输入信息都在req.weixin上
   var message = req.weixin;
