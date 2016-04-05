@@ -15,5 +15,7 @@ $(function() {
 
             // Title Screen Setup
             ww.titleScreen.resetTitleScreen();
+            
+            changeScreens("#titleScreen", "fade");
     });
 });

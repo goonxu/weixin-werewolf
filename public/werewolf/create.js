@@ -59,8 +59,8 @@ $(function() {
 
     // React to Play button
     $("#titlePlayButton").click(function() {
-        ww.playerEntryScreen.createLineForEachPlayer();
-        changeScreens("#playerEntryScreen");
+        var metaJson = {'totalPlayer': 12, 'seer': 1}
+        saveRoomInFirebase(metaJson)
         return false;
     });
 
