@@ -5,6 +5,7 @@
     <title>Werewolf</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="ww.js"></script>
+    <script type="text/javascript" src="create.js"></script>
 </head>
 
 <body style="background: black; border: 0;">
@@ -33,91 +34,6 @@
             <button id="titlePlayButton">Play</button>
             <br/><br/>
             <div id="versionText"></div>
-        </div>
-    </div>
-
-    <div data-role="page" data-theme="a" id="playerEntryScreen">
-        <div class="centerAlign bgApp">
-            <h2 class="centerAlign">Who's Playing?</h2>
-            <div id="editPlayerListDiv"><div id="playerList"></div></div>
-            <div class="centerAlign">
-                <button id="entryPlayButton">Play</button><br />
-                <button id="entryReturnButton">Main Menu</button>
-            </div>
-        </div>
-    </div>
-
-    <div data-role="page" data-theme="a" id="duskLockedScreen" class="centerAlign">
-        <div class="centerAlign bgRoleLocked">
-            <h2><span id="lockName">You</span></h2>
-            <br />
-            <div>Welcome.</div>
-            <br /><br />
-
-            <div>Click the buttons below to view your role.</div>
-            <br/><br/>
-            <div data-role="content" class="centerAlign">
-                <div data-role="fieldcontain" class="centerAlign">
-                    <fieldset data-role="controlgroup" data-type="horizontal" class="centerSelf centerAlign">
-                        <input type="checkbox" name="unlockButton1" id="unlockButton1"/><label for="unlockButton1">Show</label>
-                        <input type="checkbox" name="unlockButton2" id="unlockButton2"/><label for="unlockButton2">Role</label>
-                    </fieldset>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div data-role="page" data-theme="a" id="duskBlankLockedScreen">
-        <div class="bgRoleLocked">&nbsp;</div>
-    </div>
-
-    <div data-role="page" data-theme="a" id="duskPlayerScreen" class="centerAlign">
-        <div id="duskPlayerBg" class="centerAlign bgRoleLocked">
-            <div class="roleUpperSpace"><h2><span id="duskPlayerName">You</span></h2></div>
-            <div class="rolePictureSpace">&nbsp;</div>
-            <div id="roleInfo" class="bgGrayTrans"></div>
-            <div id="roleInstructions"></div>
-            <br />
-            <div id="roleActions"></div>
-            <br />
-            <button id="nextPlayerButton">Hide Role</button><br />
-        </div>
-    </div>
-
-    <div data-role="page" data-theme="a" id="dawnPlayScreen" class="centerAlign">
-        <div class="centerAlign bgDawn">
-            <div id="dawnRevealNightActions"></div>
-            <br /><br />
-            Someone must hang for these atrocities.  Choose a lynch.
-            <br /><br />
-            <button id="lynchContinue">Continue</button><br />
-        </div>
-    </div>
-
-    <div data-role="page" data-theme="a" id="dawnChooseLynch" class="centerAlign">
-        <div class="centerAlign bgDawn">
-            <div id="lynchPlayerListDiv"><fieldset id="lynchPlayerList" data-theme="a" data-role="controlgroup"></fieldset></div>
-            <button id="lynchNow">Lynch</button><br />
-        </div>
-    </div>
-
-    <div data-role="page" data-theme="a" id="lynchRevealScreen" class="centerAlign">
-        <div class="centerAlign bgDusk">
-            You have lynched:
-            <br /><br />
-            <div id="lynchRevealText"></div>
-            <br /><br />
-            <button id="lynchRevealContinue">Continue</button><br />
-        </div>
-    </div>
-
-    <div data-role="page" data-theme="a" id="gameOverScreen" class="centerAlign">
-        <div class="centerAlign bgApp">
-            <h3>Game Over</h3>
-            <br /><br />
-            <div class="bgGrayTrans" id="gameOverText"></div>
-            <br /><br />
-            <button id="gameOverMainMenu">Back to Main Menu</button><br />
         </div>
     </div>
 
