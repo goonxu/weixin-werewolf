@@ -4,8 +4,8 @@ var wechat = require('./lib/wechat');
 var log = require('debug')('weixin-werewolf');
 
 // 启动服务
+express.static('images')
 var app = express();
-app.static('images')
 
 var config = {
   token: 'feiyuitravel',
