@@ -5,7 +5,6 @@ var log = require('debug')('weixin-werewolf');
 
 // 启动服务
 var app = express();
-app.use(express.query());
 
 var config = {
   token: 'feiyuitravel',
@@ -13,6 +12,17 @@ var config = {
   encodingAESKey: '3GyljhUVInXIcHR0KmIXX30sazb3SrgBNnBQ4RSLM5W'
 };
 
+// 建立多个实例，并监听到不同 path ，
+var webot = new webot.Webot();
+
+// 载入webot1的回复规则
+require('./rules')(webot);
+
+// 启动机器人, 接管 web 服务请求
+webot.watch(app, config);
+
+/*
+app.use(express.query());
 app.use('/', wechat(config, function (req, res, next) {
   // 微信输入信息都在req.weixin上
   var message = req.weixin;
@@ -49,6 +59,7 @@ app.use('/', wechat(config, function (req, res, next) {
     ]);
   }
 }));
+*/
 
 // 在环境变量提供的 $PORT 或 3000 端口监听
 var port = process.env.PORT || 3000;
