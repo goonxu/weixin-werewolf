@@ -4,7 +4,7 @@ var wechat = require('./lib/wechat');
 var log = require('debug')('weixin-werewolf');
 
 // 启动服务
-express.static('images')
+express.static(__dirname + 'public')
 var app = express();
 
 var config = {
