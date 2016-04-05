@@ -5,6 +5,7 @@ var log = require('debug')('weixin-werewolf');
 
 // 启动服务
 var app = express();
+app.static('images')
 
 var config = {
   token: 'feiyuitravel',
