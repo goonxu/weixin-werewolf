@@ -9,7 +9,7 @@ $(function() {
 
         for(role in ww.Roles) {
             selections += "<p><label for='" + role + "'>" + ww.Roles[role].desc + "</label>"
-            selections += "<input type=\"text\" id='" + role + "' value='" + ww.Roles[role].default + "'/></p>" 
+            selections += "<input type=\"text\" id='" + role + "' value='" + ww.Roles[role].count + "'/></p>" 
         }
         $("#rolesection").html(selections);
 
@@ -17,6 +17,7 @@ $(function() {
             var playerCount = 0;
             $("input").each(function() {
                 playerCount += parseInt($(this).val());
+                ww.Roles[$(this).id()].count = playerCount;
             });
             $("#rolesetdesc").html("玩家人数为" + playerCount);
         });
@@ -26,8 +27,9 @@ $(function() {
 
     // React to Play button
     $("#titlePlayButton").click(function() {
-        var metaJson = {'totalPlayer': 12, 'seer': 1}
-        saveRoomInFirebase(metaJson)
+        var roomMeta = {'roles': ''}
+        roomMeta.roles = ww.Roles
+        saveRoomInFirebase(roomMeta)
         return false;
     });
 

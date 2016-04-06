@@ -3,11 +3,11 @@ var ww = {};
 (function(){
 
     ww.Roles = {
-        Villager: {desc:"村民", default:4, nightActionReq:0, team:"Good", imgClass:"bgRoleVillager"},
-        Werewolf: {desc:"狼人", default:4, nightActionReq:1, team:"Evil", imgClass:"bgRoleWerewolf"},
-        Seer: {desc:"预言家", default:1, nightActionReq:1, team:"Good", imgClass:"bgRoleSeer"},
-        Hunter: {desc:"猎人", default:1, nightActionReq:0, team:"Good", imgClass:"bgRoleHunter"},
-        Sorcerer: {desc:"女巫", default:1, nightActionReq:1, team:"Good", imgClass:"bgRoleSorceror"},
+        Villager: {desc:"村民", count:4, nightActionReq:0, team:"Good", imgClass:"bgRoleVillager"},
+        Werewolf: {desc:"狼人", count:4, nightActionReq:1, team:"Evil", imgClass:"bgRoleWerewolf"},
+        Seer: {desc:"预言家", count:1, nightActionReq:1, team:"Good", imgClass:"bgRoleSeer"},
+        Hunter: {desc:"猎人", count:1, nightActionReq:0, team:"Good", imgClass:"bgRoleHunter"},
+        Sorcerer: {desc:"女巫", count:1, nightActionReq:1, team:"Good", imgClass:"bgRoleSorceror"},
     };
     ww.Roles.Seer.viewFor = ww.Roles.Werewolf;
 
