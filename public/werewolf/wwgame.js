@@ -50,10 +50,10 @@ var wwgame = {};
         var curPage = '#titleScreen';
         if(saveData && saveData.version == 2) {
             wwgame.numPlayers = saveData.numPlayers;
-            if(saveData.rolesetIndex >= 0 && ww.Rolesets.length > saveData.rolesetIndex) {
-                wwgame.rolesetIndex = saveData.rolesetIndex;
-                wwgame.roleset = ww.Rolesets[wwgame.rolesetIndex];
-            }
+            //if(saveData.rolesetIndex >= 0 && ww.Rolesets.length > saveData.rolesetIndex) {
+                //wwgame.rolesetIndex = saveData.rolesetIndex;
+                //wwgame.roleset = ww.Rolesets[wwgame.rolesetIndex];
+            //}
             for (var i=0; i<saveData.players.length; i++) {
                 wwgame.players[i] = { name: saveData.players[i].name };
             }

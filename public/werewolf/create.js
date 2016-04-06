@@ -4,58 +4,25 @@ $(function() {
 
     ww.titleScreen.resetTitleScreen = function() {
         // Title Screen Setup
-        var options = "";
+        var selections = "";
         var addedPlayers = [];
 
-        $("#versionText").html("Version 0.14 (10/24/2013)");
-
-        for (var role in ww.Rolesets) {
-            if (jQuery.inArray(ww.Rolesets[role].players, addedPlayers) === -1) {
-                addedPlayers.push(ww.Rolesets[role].players);
-                options += '<option value="' + ww.Rolesets[role].players + '"';
-                if(ww.Rolesets[role].players == wwgame.numPlayers) {
-                    options += ' selected';
-                }
-                options += '>' + ww.Rolesets[role].players + ' Players</option>';
-            }
+        for(role in ww.Roles) {
+            selections += "<label for='" + role + "'>" + ww.Roles[role].desc + "</label>"
+            selections += "<input type=\"text\" id='" + role + "' value='" + ww.Roles[role].default + "'/>" 
         }
-        $('#players').html(options);
-        $("#players").change(); // init values
-        $('#roleset').change(); // init values
+        $("#rolesection").html(selections);
+
+        $("input").change(function(){
+            var playerCount = 0;
+            $("input").each(function() {
+                playerCount += parseInt($(this).val());
+            });
+            $("#rolesetdesc").html("玩家人数为" + playerCount);
+        });
+
+        $("#rolesetdesc").html("玩家人数为12");
     };
-
-    // React to players combo box changing
-    $("#players").change(function () {
-        wwgame.numPlayers = parseInt($('#players').val(), 10);
-        var options = "";
-        for (var role in ww.Rolesets) {
-            if (ww.Rolesets[role].players == wwgame.numPlayers) {
-                options += '<option value="' + role + '"';
-                if(role == wwgame.rolesetIndex) {
-                    options += ' selected';
-                }
-                options += '>' + ww.Rolesets[role].name + '</option>';
-            }
-        }
-        $('#roleset').html(options);
-        $('#roleset').change();
-    });
-
-    // React to roleset combo box changing
-    $('#roleset').change(function() {
-        wwgame.rolesetIndex = parseInt($('#roleset').val(), 10);
-        wwgame.roleset = ww.Rolesets[wwgame.rolesetIndex];
-        var desc = wwgame.roleset.desc + "<br /><br />";
-        for (var r in wwgame.roleset.roles) {
-                    desc += wwgame.roleset.roles[r].count + "x ";
-                    desc += wwhtml.GetRoleAndAttributes(wwgame.roleset.roles[r], true);
-                    if(wwgame.roleset.roles[r].n0) {
-                        desc += " (" + wwgame.roleset.roles[r].n0.desc + ")";
-                    }
-                    desc += "<br />";
-                }
-        $('#rolesetdesc').html(desc);
-    });
 
     // React to Play button
     $("#titlePlayButton").click(function() {
