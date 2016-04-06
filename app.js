@@ -17,7 +17,7 @@ app.use('/wechat', wechat(config, function (req, res, next) {
   // 微信输入信息都在req.weixin上
   var message = req.weixin;
   if (message.MsgType === 'text') {
-    if(message.Content === 'create') {
+    if(message.Content.startsWith('c')) {
       res.reply([
       {    
             title: '新建狼人杀房间',
@@ -26,7 +26,12 @@ app.use('/wechat', wechat(config, function (req, res, next) {
             url: 'http://weixin-werewolf.herokuapp.com/werewolf/index.html'
       }    
       ]);
-    }    
+    } 
+    else if(message.Content.startsWith('j')) { 
+      var date = Math.floor(Date.now() / 1000 / 3600 / 24);
+      var room = message.Content.match(/\d+/);
+      res.reply("get from " + date + room)
+    }   
   }
 }));
 
