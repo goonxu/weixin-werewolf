@@ -8,8 +8,8 @@ $(function() {
         var addedPlayers = [];
 
         for(role in ww.Roles) {
-            selections += "<label for='" + role + "'>" + ww.Roles[role].desc + "</label>"
-            selections += "<input type=\"text\" id='" + role + "' value='" + ww.Roles[role].default + "'/>" 
+            selections += "<p><label for='" + role + "'>" + ww.Roles[role].desc + "</label>"
+            selections += "<input type=\"text\" id='" + role + "' value='" + ww.Roles[role].default + "'/></p>" 
         }
         $("#rolesection").html(selections);
 
