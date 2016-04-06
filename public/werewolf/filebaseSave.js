@@ -6,4 +6,5 @@ function saveRoomInFirebase(jsonData) {
     var room = Math.floor(Math.random() * 10000);
     var myFirebaseRef = new Firebase("https://wechatwerewolf.firebaseio.com/" + date + "/" + room);
     myFirebaseRef.set(jsonData);
+    return room;
 }

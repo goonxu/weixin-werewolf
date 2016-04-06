@@ -22,15 +22,17 @@ $(function() {
             $("#rolesetdesc").html("玩家人数为" + playerCount);
         });
 
-        $("#rolesetdesc").html("玩家人数为12");
+        $("#rolesetdesc").html("玩家人数为11");
     };
 
     // React to Play button
     $("#titlePlayButton").click(function() {
         var roomMeta = {'roles': ''}
         roomMeta.roles = ww.Roles
-        saveRoomInFirebase(roomMeta)
-        return false;
+        var roomId = saveRoomInFirebase(roomMeta)
+        $(this).text('房间号' + roomId)
+        $(this).attr('disabled', true)
+        $(this).button("refresh");
     });
 
 });
