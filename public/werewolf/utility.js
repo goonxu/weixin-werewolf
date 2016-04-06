@@ -29,5 +29,4 @@ function changeScreens(destPage, animation, animReverse) {
         options.reverse = true;
     }
     $.mobile.changePage(destPage, options);
-    wwgame.saveState();
 }

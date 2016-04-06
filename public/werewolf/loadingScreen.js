@@ -9,7 +9,6 @@ $(function() {
     $.mobile.defaultPageTransition = "slide";
 
     $(window).load(function() {
-        var loadPage = wwgame.loadState();
 
             $.mobile.hidePageLoadingMsg();
 

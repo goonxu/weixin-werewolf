@@ -1,5 +1,6 @@
 var express = require('express');
 var wechat = require('./lib/wechat');
+var wwgame = require('./lib/wwgame');
 
 var log = require('debug')('weixin-werewolf');
 
